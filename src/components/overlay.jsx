@@ -1,5 +1,5 @@
 import styles from './OverLay.module.css';
-
+import styles2 from './VideoCall.module.css'
 export const OverLay = ({ children, show, toggleVisibility }) => {
     const visibleWhenhidden = { display: show ? 'none' : '' };
     const visibleWhenShow = { display: show ? '' : 'none' };
@@ -10,7 +10,7 @@ export const OverLay = ({ children, show, toggleVisibility }) => {
                 style={visibleWhenhidden}
                 onClick={(e) => {
                     toggleVisibility();
-                }}>
+                }}className={styles2.button}>
                 Join Call
             </button>
             <div
