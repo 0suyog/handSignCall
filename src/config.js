@@ -10,8 +10,8 @@ const firebaseConfig = {
     projectId: 'callapp-84d34',
     storageBucket: 'callapp-84d34.firebasestorage.app',
     messagingSenderId: '920143830204',
-    appId: '1:920143830204:web:3c9956d18bf0de9dca84b9'
+    appId: '1:920143830204:web:3c9956d18bf0de9dca84b9',
+    databaseURL: "https://callapp-84d34-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
-
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
