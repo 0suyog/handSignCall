@@ -27,10 +27,6 @@ const VideoCall = () => {
   // const [stream, setStream] = useState(null);
   const webcamVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
-  // const videoRefs = useRef({
-  //     webcamVideoRef: React.createRef(),
-  //     remoteVideoRef: React.createRef()
-  // });
   const [sound, setSound] = useState(true);
   const [show, setShow] = useState(false);
   const servers = {
@@ -54,6 +50,7 @@ const VideoCall = () => {
       // const temp = await navigator.mediaDevices.getUserMedia({ video: true });
       // setStream(temp);
       (async () => {
+        console.log(showVideo);
         const stream = await navigator.mediaDevices.getUserMedia({
           video: showVideo,
           audio: sound,
@@ -119,29 +116,20 @@ const VideoCall = () => {
     }
   }, [sound]);
 
-  // useEffect(() => {
-
-  // }, [localStream]);
 
   const startWebcam = async () => {
-    // const stream = await navigator.mediaDevices.getUserMedia({
-    //     video: showVideo,
-    //     audio: false
-    // });
 
     const remote = new MediaStream();
     // setLocalStream(stream);
     setRemoteStream(remote);
-    // stream.getTracks().forEach((track) => {
-    //     peerConnection.addTrack(track, stream);
-    // });
 
     peerConnection.ontrack = (event) => {
       event.streams[0].getTracks().forEach((track) => {
         console.log("running");
         remote.addTrack(track);
         track.onended = () => {
-          alert("fuck you bitch open video");
+          console.log("Video off ");
+          // alert("fuck you bitch open video");
         };
       });
     };
