@@ -13,17 +13,18 @@ function preload() {
 function setup() {
     createCanvas(640, 480);
     video = createCapture(VIDEO);
+    console.log(video);
     video.size(640, 480);
     video.hide();
     handPose.detectStart(video, (result) => (hands = result));
     let options = {
         task: 'classification'
     };
-    classifier = ml5.neuralNetwork(options);
+    let classifier = ml5.neuralNetwork(options);
     let modelDetails = {
-        model: '../../public/models/model_meta.json',
-        metadata: '.../../public/models/model_meta.json',
-        weights: '.../../public/models/model.weights.bin'
+        model: 'models/model.json',
+        metadata: 'models/model_meta.json',
+        weights: 'models/model.weights.bin'
     };
     classifier.load(modelDetails, () => {
         loaded = true;
